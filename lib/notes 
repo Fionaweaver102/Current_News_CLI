@@ -1,0 +1,29 @@
+GitHub commands 
+git status / shows all files and changes
+git add . / will save ALL files in red
+git commit -m "first commit" / This will show on github
+git remote add origin git@github.com:Fionaweaver102/Current_News_CLI.git
+git push origin master / learn submit is the equivillant / pushes to github 
+
+
+TopNews app with News API
+1. Welcome the user
+2. Ask which country they would like top news on
+    - Return list article titles and dates based on the country they chose  
+3. Ask which article they would like to see a description on 
+    -Return the description of the article they chose  
+4. Ask if they would like to see more article titles on that country, or back to main menu, or exit.
+
+Classes
+1. CLI Class
+    - dealing with what shows up on the terminal 
+2. API class 
+    - dealing  with the api 
+3.  NewsArticles class 
+    - getting the title and the date published and saves it 
+
+
+
+    
+
+
