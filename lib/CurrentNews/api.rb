@@ -1,7 +1,3 @@
-require "httparty"
-require "news-api"
-require "pry"
-
 
 class API
 
