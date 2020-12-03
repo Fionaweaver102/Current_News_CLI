@@ -89,6 +89,7 @@ class CLI
             main_menu_options
         elsif input == "exit"
             puts "\nExiting...\n"
+            sleep(2)
             puts "Thanks for coming!" 
         else 
             invalid_choice
