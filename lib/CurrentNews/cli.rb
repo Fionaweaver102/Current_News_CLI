@@ -55,25 +55,33 @@ class CLI
         end 
     end 
 
-    def list_articles 
+    def list_articles
         NewsArticles.all.each.with_index(1) do |info, index|
             puts "-------------------------"
             sleep(1)
             puts "#{index}. #{info.title}"
             puts "-------------------------"
         end 
+        puts "\nHere are some titles of top stories, to see a description on one of these articles, please enter the number of the article you would like to see. \n"
     end 
 
     def return_definition 
-        puts "\nHere are some titles of top stories, to see a description on one of these articles, please enter the number of the article you would like to see. \n"
         print "Enter number: "
-        input = gets.strip.to_i
-        index = input - 1
-        article_selected = NewsArticles.all[index]
-        puts "-------------------------"
+        input = gets.chomp.to_i 
+        input_to_index = input - 1 
+        matches_article = NewsArticles.all.select.with_index{|info, index| index == input_to_index}
+        if matches_article.any? 
+            article_selected = NewsArticles.all[input_to_index]
+        puts "\n-------------------------"
         sleep(1)
         puts "Description: #{article_selected.description}"
         puts "-------------------------"
+        elsif input == 'exit'
+            exit 
+        else 
+            invalid_choice
+            return_definition
+        end 
     end 
 
     def invalid_choice 
@@ -82,7 +90,7 @@ class CLI
     
 
     def continue_or_exit
-        puts "\nTo see top stories from a different country, or category, please type 'main menu'.\nexit"
+        puts "\nTo see top stories from a different country, or category, please type 'main menu'.\n"
         puts "If you would like to exit, please type 'exit'."
         input = gets.strip 
         if input == "main menu"
